@@ -1,13 +1,10 @@
-function Child({ label, data, onUpdate }) {
+function Child({ onUpdate }) {
   return (
     <div>
-      <h3>{label}</h3>
+      <h3>Child Component</h3>
 
-      {/* RECEIVING PROPS */}
-      <p>Message: {data}</p>
-
-      {/* EVENT HANDLING + CALLBACK */}
-      <button onClick={() => onUpdate(`Updated by ${label}`)}>
+      {/* STEP 4: Trigger parent update */}
+      <button onClick={() => onUpdate("Updated from Child!")}>
         Update Parent State
       </button>
     </div>

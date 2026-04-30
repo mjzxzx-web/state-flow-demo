@@ -1,14 +1,11 @@
 import { useState } from "react";
 import Child from "./Child";
-import Display from "./Display";
 
 function Parent() {
-  // STATE MANAGEMENT (Requirement: useState)
   const [message, setMessage] = useState("Hello from Parent");
 
-  // CALLBACK FUNCTION (Child → Parent)
+  // STEP 4: Callback function
   const updateMessage = (newMessage) => {
-    console.log("Updating state:", newMessage);
     setMessage(newMessage);
   };
 
@@ -16,12 +13,10 @@ function Parent() {
     <div>
       <h2>Parent Component</h2>
 
-      {/* MULTIPLE CHILD COMPONENTS (Shared State) */}
-      <Child label="Child 1" data={message} onUpdate={updateMessage} />
-      <Child label="Child 2" data={message} onUpdate={updateMessage} />
+      <p>Message: {message}</p>
 
-      {/* DISPLAY COMPONENT */}
-      <Display message={message} />
+      {/* Passing callback to child */}
+      <Child onUpdate={updateMessage} />
     </div>
   );
 }
